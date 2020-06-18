@@ -9,14 +9,10 @@ print("Welcome to SQ's first slot machine!")
 print("")
 
 if credit == 0:
-    print("You ran out of Credits. Sorry :( ")
+    print("You have no Credits. Please game responsibly ")
     quit()
 
 start_of_game = input("Do you wish to roll? (Y/N): ")
-
-if credit == 0:
-    print("Out of Credits. Sorry")
-    quit()
 
 if start_of_game.lower() == "n":
     print(f"You decided not to roll. You have {credit} Credits left")
