@@ -72,6 +72,7 @@ while credit >= 10:
         cont = input("Continue? (Y/N): ")
         if cont.lower() == "n":
             print(f"You decided not to roll. You have {credit} Credits left")
+            print(f"You played {spin} times")
             quit()
         else:
             continue
