@@ -1,0 +1,21 @@
+import hashlib
+import os
+import sqlite3
+
+Output = "This is a secret"
+Valid_User = {"SQ": b'\xcdg\x1a\x14$\x96\x9f\xe7\xd5\x17\xdb\xc5R\xf4QJ\xc9G\xadk6\xec\x00\xba\xe6TJW\x15iN\xeb'}
+salt = "f1nd1ngn3m0".encode()
+promptuser = input(("Please enter username: "))
+promptpw = input("Please enter pw: ")
+promptpw = hashlib.pbkdf2_hmac("sha256", promptpw.encode("utf-8"), salt, 100000)
+
+def is_valid_credentials(user,pw):
+    try:
+        if promptuser != Valid_User[str(promptuser)] and promptpw != Valid_User[str(promptuser)]:
+         return "Wrong Username or password"
+        else:
+            return Output
+    except KeyError:
+        return ("Wrong Username or password")
+
+print(is_valid_credentials(promptuser,promptpw))
